@@ -1,0 +1,61 @@
+{
+  "method": "logistic_regression_abs_coefficients",
+  "importances": [
+    {
+      "feature": "operating_mode_peak",
+      "importance": 4.8639
+    },
+    {
+      "feature": "operating_mode_idle",
+      "importance": 3.765
+    },
+    {
+      "feature": "rpm",
+      "importance": 3.004
+    },
+    {
+      "feature": "current_phase_avg",
+      "importance": 2.8815
+    },
+    {
+      "feature": "vibration_rms",
+      "importance": 2.7522
+    },
+    {
+      "feature": "temperature_motor",
+      "importance": 2.5771
+    },
+    {
+      "feature": "machine_type_Compressor",
+      "importance": 2.5357
+    },
+    {
+      "feature": "pressure_level",
+      "importance": 1.9022
+    },
+    {
+      "feature": "machine_type_Robotic Arm",
+      "importance": 1.8641
+    },
+    {
+      "feature": "operating_mode_normal",
+      "importance": 0.8489
+    },
+    {
+      "feature": "machine_type_CNC",
+      "importance": 0.8307
+    },
+    {
+      "feature": "machine_type_Pump",
+      "importance": 0.4455
+    },
+    {
+      "feature": "hours_since_maintenance",
+      "importance": 0.2302
+    },
+    {
+      "feature": "ambient_temp",
+      "importance": 0.0036
+    }
+  ]
+}

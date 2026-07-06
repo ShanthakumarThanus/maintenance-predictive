@@ -26,18 +26,14 @@ FEATURES = [
     "ambient_temp",
 ]
 
-
 class MachineData(BaseModel):
-    machine_type: Literal["CNC", "Pump", "Compressor", "Robotic Arm"]
     vibration_rms: float = Field(ge=0)
     temperature_motor: float
     current_phase_avg: float
     pressure_level: float = Field(ge=0)
     rpm: float = Field(ge=0)
-    operating_mode: Literal["idle", "normal", "peak"]
     hours_since_maintenance: float = Field(ge=0)
     ambient_temp: float
-
 
 def _load_json(path: Path) -> Optional[dict]:
     if not path.exists():

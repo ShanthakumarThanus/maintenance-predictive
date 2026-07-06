@@ -62,11 +62,27 @@ def health():
 
 @app.get("/model-info")
 def model_info():
-    metrics = _load_json(METRICS_PATH)
-    feature_importance = _load_json(FEATURE_IMPORTANCE_PATH)
-    if metrics is None and feature_importance is None:
-        raise HTTPException(status_code=404, detail="Aucune métadonnée de modèle disponible")
-    return {"metrics": metrics, "feature_importance": feature_importance}
+    try:
+        metrics_path = Path("../model/metrics.json")
+        fi_path = Path("../model/feature_importance.json")
+
+        with open(metrics_path) as f:
+            metrics = json.load(f)
+
+        with open(fi_path) as f:
+            feature_importance = json.load(f)
+
+        all_models = metrics.get("models_sans_smote", []) + metrics.get("models_avec_smote", [])
+
+        return {
+            "metrics": {
+                "models": all_models,
+                "selected_model": metrics.get("selected_model", "n/a")
+            },
+            "feature_importance": feature_importance
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.post("/predict")

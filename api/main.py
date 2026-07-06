@@ -17,13 +17,11 @@ FEATURE_IMPORTANCE_PATH = MODEL_DIR / "feature_importance.json"
 model = joblib.load(MODEL_PATH) if MODEL_PATH.exists() else None
 
 FEATURES = [
-    "machine_type",
     "vibration_rms",
     "temperature_motor",
     "current_phase_avg",
     "pressure_level",
     "rpm",
-    "operating_mode",
     "hours_since_maintenance",
     "ambient_temp",
 ]
